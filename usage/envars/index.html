@@ -18,8 +18,9 @@ Flags:
   -n, --names         Show only names.
   -u, --unset         Unset the specified environment variable.
 </code></pre></div><div class=gdoc-page__anchorwrap><h2 id=hermit>Hermit
-<a data-clipboard-text=https://cashapp.github.io/hermit/usage/envars/#hermit class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Hermit" href=#hermit><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg></a></h2></div><p>Hermit itself requires several environment variables to operate correctly. An
-empty environment might look something like the following:</p><div class=highlight><pre class=chroma><code class=language-text data-lang=text>project🐚~/project$ hermit env
+<a data-clipboard-text=https://cashapp.github.io/hermit/usage/envars/#hermit class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Hermit" href=#hermit><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg></a></h2></div><p>Hermit prefixes all of its own variables with <code>HERMIT_</code> or <code>_HERMIT_</code>. While
+it uses a bunch of variables internally, two you can rely on to always be
+present in an active environment are:</p><table><thead><tr><th>Name</th><th>Description</th><th></th></tr></thead><tbody><tr><td><code>HERMIT_ENV</code></td><td>Path to the active Hermit environment.</td><td></td></tr><tr><td><code>HERMIT_BIN</code></td><td>Path to the active Hermit environment <code>bin</code> directory.</td><td></td></tr></tbody></table><p>An empty environment might look something like the following:</p><div class=highlight><pre class=chroma><code class=language-text data-lang=text>project🐚~/project$ hermit env
 HERMIT_BIN=/home/user/project/bin
 HERMIT_ENV=/home/user/project
 PATH=/home/user/project/bin:/home/user/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/local/bin
