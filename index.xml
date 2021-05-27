@@ -39,4 +39,4 @@ Attributes Attribute Type Description text string Message text to display to use
 Used by: on
 Attributes Attribute Type Description from string Source path to rename. to string Destination path to rename to.</description></item><item><title>on > run</title><link>https://cashapp.github.io/hermit/packaging/schema/run/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://cashapp.github.io/hermit/packaging/schema/run/</guid><description>A command to run when the event is triggered.
 Used by: on
-Attributes Attribute Type Description args [string]? The arguments to the binary cmd string The command to execute dir string? The directory where the command is run in. Defaults to the root directory. env [string]? The environment variables for the execution stdin string?</description></item></channel></rss>
+Attributes Attribute Type Description args [string]? The arguments to the binary. cmd string The command to execute, split by shellquote. dir string? The directory where the command is run. Defaults to the ${root} directory. env [string]? The environment variables for the execution. stdin string?</description></item></channel></rss>
