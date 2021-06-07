@@ -11,8 +11,8 @@ to maintain backwards compatibility.</p><p>In particular this means:</p><ul><li>
 is applied to an active environment.</p><div class=gdoc-page__anchorwrap><h2 id=manifests>Manifests
 <a data-clipboard-text=https://cashapp.github.io/hermit/packaging/reference/#manifests class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Manifests" href=#manifests><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg></a></h2></div><p>Hermit manifests (package definitions) are <a class=gdoc-markdown__link href=https://github.com/alecthomas/hcl>HCL</a>
 configuration files defining where to download packages from and how to install them.</p><p>Refer to the <a class=gdoc-markdown__link href=../schema>schema documentation</a> for details.</p><p>Here's an example manifest for Rust:</p><div class=highlight><pre class=chroma><code class=language-hcl data-lang=hcl><span class=n>description</span> <span class=o>=</span> <span class=s2>&#34;A language empowering everyone to build reliable and efficient software.&#34;</span>
-<span class=n>binaries</span> <span class=o>=</span> <span class=p>[</span><span class=s2>&#34;*/bin/*&#34;</span><span class=p>]</span>
-<span class=n>strip</span> <span class=o>=</span> <span class=m>1</span>
+<span class=n>binaries</span> <span class=o>=</span> <span class=p>[</span><span class=s2>&#34;bin/*&#34;</span><span class=p>]</span>
+<span class=n>strip</span> <span class=o>=</span> <span class=m>2</span>
 
 <span class=k>darwin</span> {
 <span class=n>  source</span> <span class=o>=</span> <span class=s2>&#34;https://static.rust-lang.org/dist/rust-${version}-x86_64-apple-darwin.tar.xz&#34;</span>
