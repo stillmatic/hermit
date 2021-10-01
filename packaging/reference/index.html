@@ -350,7 +350,9 @@ configuration files defining where to download packages from and how to install 
 <span class=n>    source</span> <span class=o>=</span> <span class=s2>&#34;https://static.rust-lang.org/dist/rust-nightly-x86_64-unknown-linux-musl.tar.xz&#34;</span>
   }
 }
-</code></pre></div><div class=gdoc-page__anchorwrap>
+</code></pre></div><p>Package source can refer to a remote archive file by using <code>http://</code> or <code>https://</code> prefixes, to a local file by using <code>file://</code> prefix, or to a Git repository by using <code>.git</code> suffix.
+If the source points to an archive file, it is extracted at installation. Git repositories are cloned from the default branch and used as is.</p>
+<div class=gdoc-page__anchorwrap>
 <h2 id=sources>
 Sources
 <a data-clipboard-text=https://cashapp.github.io/hermit/packaging/reference/#sources class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Sources" href=#sources><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg>
