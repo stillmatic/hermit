@@ -339,7 +339,17 @@ Create a Basic Manifest
 thing you'll want is a description, for which typically just copy the project
 description from their site or GitHub repository:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-hcl data-lang=hcl><span class=n>description</span> <span class=o>=</span> <span class=s2>&#34;jq is like sed for JSON data - you can use it to slice and filter and map and transform structured data with the same ease that sed, awk, grep and friends let you play with text.&#34;</span>
-</code></pre></div><div class=gdoc-page__anchorwrap>
+</code></pre></div><blockquote class="gdoc-hint ok">
+<p>The <code>hermit</code> CLI includes a best-effort command to create a stub manifest.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text>hermit manifest create https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64`
+</code></pre></div><p>Currently there a few limitations:</p>
+<ol>
+<li>It only works for binaries in GitHub releases.</li>
+<li>The download link must include <code>${os}</code> and either <code>${arch}</code> or <code>${xarch}</code>.</li>
+</ol>
+<p>Hopefully these limitations will be removed over time.</p>
+</blockquote>
+<div class=gdoc-page__anchorwrap>
 <h2 id=add-a-version>
 Add a Version
 <a data-clipboard-text=https://cashapp.github.io/hermit/packaging/tutorial/#add-a-version class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Add a Version" href=#add-a-version><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg>
@@ -435,7 +445,11 @@ test whether the package is functioning. This will typically just be
 something like:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-hcl data-lang=hcl><span class=n>test</span> <span class=o>=</span> <span class=s2>&#34;jq --version&#34;</span>
 </code></pre></div><p>The Hermit packages CI will run these tests periodically.</p>
-<div class=gdoc-page__anchorwrap>
+<p>To test your package run:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text>$ hermit test jq --trace
+debug:jq-1.6:exec: /Users/user/Library/Caches/hermit/pkg/jq-1.6/jq --version
+debug: jq-1.6
+</code></pre></div><div class=gdoc-page__anchorwrap>
 <h2 id=the-end-result>
 The End Result
 <a data-clipboard-text=https://cashapp.github.io/hermit/packaging/tutorial/#the-end-result class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor The End Result" href=#the-end-result><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg>
@@ -462,9 +476,9 @@ The End Result
 
 <span class=k>version</span> <span class=s2>&#34;1.6&#34;</span> {}
 </code></pre></div><div class=gdoc-page__anchorwrap>
-<h2 id=local-testing>
-Local Testing
-<a data-clipboard-text=https://cashapp.github.io/hermit/packaging/tutorial/#local-testing class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Local Testing" href=#local-testing><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg>
+<h2 id=local-manual-testing>
+Local Manual Testing
+<a data-clipboard-text=https://cashapp.github.io/hermit/packaging/tutorial/#local-manual-testing class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Local Manual Testing" href=#local-manual-testing><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg>
 </a>
 </h2>
 </div><p>As mentioned above, <code>hermit-packages</code> is also a Hermit environment. Now we
