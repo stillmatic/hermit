@@ -387,6 +387,34 @@ if there is a newer version.</p>
 </ol>
 <p>This allows projects to pin to stable releases.</p>
 <div class=gdoc-page__anchorwrap>
+<h2 id=dependencies>
+Dependencies
+<a data-clipboard-text=https://cashapp.github.io/hermit/packaging/reference/#dependencies class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Dependencies" href=#dependencies><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg>
+</a>
+</h2>
+</div><p>Hermit supports two kinds of dependencies between packages, direct dependencies and runtime dependencies.</p>
+<div class=gdoc-page__anchorwrap>
+<h3 id=direct-dependencies>
+Direct dependencies
+<a data-clipboard-text=https://cashapp.github.io/hermit/packaging/reference/#direct-dependencies class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Direct dependencies" href=#direct-dependencies><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg>
+</a>
+</h3>
+</div><p>Direct dependencies are declared in the manifest files using a <code>requires</code> definition in the manifest file.
+This lists the packages that are needed in the environment to use the given package.
+The package references in the <code>requires</code> list can either refer to an explicit package, or to a value defined in the <code>provides</code> definition of the dependency.
+For example, <code>requires = ["jre"]</code> would work with any package defining <code>provides = ["jre"]</code> in its definition.</p>
+<p>When a package with <code>requires</code> definition is installed, all its dependencies are installed to the target environment as well.</p>
+<div class=gdoc-page__anchorwrap>
+<h3 id=runtime-dependencies>
+Runtime dependencies
+<a data-clipboard-text=https://cashapp.github.io/hermit/packaging/reference/#runtime-dependencies class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Runtime dependencies" href=#runtime-dependencies><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg>
+</a>
+</h3>
+</div><p>Runtime dependencies are package dependencies that are not installed into the target environment.
+These are defined using a <code>runtime-dependencies</code> definition in the manifest.</p>
+<p>Hermit makes sure the runtime dependencies are on the system when a binary from the package is executed, and injects the environment variables from the runtime dependencies to the binary when executed.
+This is a good way on depending on binaries and env variables from other packages in your package without exposing them to the target environment.</p>
+<div class=gdoc-page__anchorwrap>
 <h2 id=variable-interpolation>
 Variable Interpolation
 <a data-clipboard-text=https://cashapp.github.io/hermit/packaging/reference/#variable-interpolation class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Variable Interpolation" href=#variable-interpolation><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg>
