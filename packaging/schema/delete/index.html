@@ -3,11 +3,10 @@
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=color-scheme content="light dark">
-<meta name=description content="Generally, using Hermit in CI is similar to using it locally - activate your environment via . ./bin/activate-hermit, add <repo>/bin to your $PATH, or use ./bin/hermit env to directly update your CI environment.
-GitHub Actions    Using Hermit in GitHub Actions is straightforward. Just add the following step to each job:
-- name:Init Hermitrun:./bin/hermit env --raw >> $GITHUB_ENVeg.
-jobs:test:name:Testruns-on:ubuntu-lateststeps:- name:Checkout codeuses:actions/checkout@v2- name:Init Hermitrun:./bin/hermit env --raw >> $GITHUB_ENV- name:Testrun:go test .">
-<title>Continuous Integration | Hermit Docs</title>
+<meta name=description content="Delete files.
+Used by: on
+Attributes       Attribute Type Description     files [string] Files to delete.   recursive boolean? Recursively delete.    ">
+<title>on > delete | Hermit Docs</title>
 <link rel=icon href=/hermit/favicon/favicon-32x32.png type=image/x-icon>
 <script src=/hermit/js/darkmode-38abb9703d.min.js></script>
 <link rel=preload as=font href=/hermit/fonts/Metropolis.woff2 type=font/woff2 crossorigin=anonymous>
@@ -125,7 +124,7 @@ User Configuration
 </li>
 <li>
 <span class=flex>
-<a href=/hermit/usage/ci/ class="gdoc-nav__entry is-active">
+<a href=/hermit/usage/ci/ class=gdoc-nav__entry>
 Continuous Integration
 </a>
 </span>
@@ -239,7 +238,7 @@ on > copy
 </li>
 <li>
 <span class=flex>
-<a href=/hermit/packaging/schema/delete/ class=gdoc-nav__entry>
+<a href=/hermit/packaging/schema/delete/ class="gdoc-nav__entry is-active">
 on > delete
 </a>
 </span>
@@ -294,69 +293,48 @@ version > auto-version
 justify-between" itemprop=breadcrumb>
 <div><svg class="icon gdoc_path hidden-mobile"><use xlink:href="#gdoc_path"/></svg>
 <ol class=breadcrumb itemscope itemtype=https://schema.org/BreadcrumbList>
-<li itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><a itemscope itemtype=https://schema.org/WebPage itemprop=item itemid=/hermit/ href=/hermit/><span itemprop=name>Hermit</span></a><meta itemprop=position content="2"></li><li> / </li><li itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><a itemscope itemtype=https://schema.org/WebPage itemprop=item itemid=/hermit/usage/ href=/hermit/usage/><span itemprop=name>Usage</span></a><meta itemprop=position content="3"></li><li> / </li><li itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><span itemprop=name>Continuous Integration</span><meta itemprop=position content="4"></li>
+<li itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><a itemscope itemtype=https://schema.org/WebPage itemprop=item itemid=/hermit/ href=/hermit/><span itemprop=name>Hermit</span></a><meta itemprop=position content="2"></li><li> / </li><li itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><a itemscope itemtype=https://schema.org/WebPage itemprop=item itemid=/hermit/packaging/ href=/hermit/packaging/><span itemprop=name>Packaging</span></a><meta itemprop=position content="3"></li><li> / </li><li itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><a itemscope itemtype=https://schema.org/WebPage itemprop=item itemid=/hermit/packaging/schema/ href=/hermit/packaging/schema/><span itemprop=name>Schema</span></a><meta itemprop=position content="4"></li><li> / </li><li itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><span itemprop=name>on > delete</span><meta itemprop=position content="5"></li>
 </ol>
 </div>
 <div>
 <span class=editpage><svg class="icon gdoc_code"><use xlink:href="#gdoc_code"/></svg>
-<a href=https://github.com/cashapp/hermit/edit/master/docs/content/usage/ci.md>
+<a href=https://github.com/cashapp/hermit/edit/master/docs/content/packaging/schema/delete.md>
 Edit this page
 </a>
 </span>
 </div>
 </div>
 <article class="gdoc-markdown gdoc-markdown__align--left">
-<h1>Continuous Integration</h1>
-<p>Generally, using Hermit in CI is similar to using it locally - activate
-your environment via <code>. ./bin/activate-hermit</code>, add <code>&lt;repo>/bin</code> to your
-<code>$PATH</code>, or use <code>./bin/hermit env</code> to directly update your CI environment.</p>
+<h1>on > delete</h1>
+<p>Delete files.</p>
+<p>Used by: <a class=gdoc-markdown__link href=../on#blocks>on</a></p>
 <div class=gdoc-page__anchorwrap>
-<h2 id=github-actions>
-GitHub Actions
-<a data-clipboard-text=https://cashapp.github.io/hermit/usage/ci/#github-actions class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor GitHub Actions" href=#github-actions><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg>
+<h2 id=attributes>
+Attributes
+<a data-clipboard-text=https://cashapp.github.io/hermit/packaging/schema/delete/#attributes class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Attributes" href=#attributes><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg>
 </a>
 </h2>
-</div><p>Using Hermit in GitHub Actions is straightforward. Just add the following step to each job:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Init Hermit</span><span class=w>
-</span><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=l>./bin/hermit env --raw &gt;&gt; $GITHUB_ENV</span><span class=w>
-</span></code></pre></div><p>eg.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=nt>jobs</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=nt>test</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Test</span><span class=w>
-</span><span class=w>    </span><span class=nt>runs-on</span><span class=p>:</span><span class=w> </span><span class=l>ubuntu-latest</span><span class=w>
-</span><span class=w>    </span><span class=nt>steps</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Checkout code</span><span class=w>
-</span><span class=w>        </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>actions/checkout@v2</span><span class=w>
-</span><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Init Hermit</span><span class=w>
-</span><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=l>./bin/hermit env --raw &gt;&gt; $GITHUB_ENV</span><span class=w>
-</span><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Test</span><span class=w>
-</span><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=l>go test ./...</span><span class=w>
-</span></code></pre></div><div class=gdoc-page__anchorwrap>
-<h2 id=jenkins>
-Jenkins
-<a data-clipboard-text=https://cashapp.github.io/hermit/usage/ci/#jenkins class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Jenkins" href=#jenkins><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg>
-</a>
-</h2>
-</div><p>Here's an example <code>Jenkinsfile</code> to use Hermit inside <a class=gdoc-markdown__link href=https://www.jenkins.io/>Jenkins</a>:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-groovy data-lang=groovy><span class=n>pipeline</span> <span class=o>{</span>
-  <span class=n>agent</span> <span class=n>any</span>
-
-  <span class=n>stages</span> <span class=o>{</span>
-    <span class=n>stage</span><span class=o>(</span><span class=s1>&#39;Do stuff&#39;</span><span class=o>)</span> <span class=o>{</span>
-      <span class=n>environment</span> <span class=o>{</span>
-        <span class=n>hermitEnvVars</span> <span class=o>=</span> <span class=n>sh</span><span class=o>(</span><span class=nl>returnStdout:</span> <span class=kc>true</span><span class=o>,</span> <span class=nl>script:</span> <span class=s1>&#39;./bin/hermit env --raw&#39;</span><span class=o>).</span><span class=na>trim</span><span class=o>()</span>
-      <span class=o>}</span>
-
-      <span class=n>steps</span> <span class=o>{</span>
-        <span class=n>withEnv</span><span class=o>(</span><span class=n>hermitEnvVars</span><span class=o>.</span><span class=na>split</span><span class=o>(</span><span class=s1>&#39;\n&#39;</span><span class=o>).</span><span class=na>toList</span><span class=o>())</span> <span class=o>{</span>
-          <span class=c1>// now we can use any hermit package directly...
-</span><span class=c1></span>          <span class=n>sh</span> <span class=s1>&#39;go build&#39;</span>
-        <span class=o>}</span>
-      <span class=o>}</span>
-    <span class=o>}</span>
-  <span class=o>}</span>
-<span class=o>}</span>
-</code></pre></div>
+</div><table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>files</code></td>
+<td><code>[string]</code></td>
+<td>Files to delete.</td>
+</tr>
+<tr>
+<td><code>recursive</code></td>
+<td><code>boolean?</code></td>
+<td>Recursively delete.</td>
+</tr>
+</tbody>
+</table>
 </article>
 <div class="gdoc-page__footer flex flex-wrap justify-between">
 </div>

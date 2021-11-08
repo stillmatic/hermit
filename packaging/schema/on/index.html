@@ -5,7 +5,7 @@
 <meta name=color-scheme content="light dark">
 <meta name=description content="Triggers to run on lifecycle events.
 Used by: channel darwin linux <manifest> platform version
-Blocks       Block Description     chmod { … } Change a files mode.   copy { … } A file to copy when the event is triggered.   message { … } Display a message to the user.   rename { … } Rename a file.">
+Blocks       Block Description     chmod { … } Change a files mode.   copy { … } A file to copy when the event is triggered.   delete { … } Delete files.   message { … } Display a message to the user.   rename { … } Rename a file.">
 <title>on &lt;event> | Hermit Docs</title>
 <link rel=icon href=/hermit/favicon/favicon-32x32.png type=image/x-icon>
 <script src=/hermit/js/darkmode-38abb9703d.min.js></script>
@@ -238,6 +238,13 @@ on > copy
 </li>
 <li>
 <span class=flex>
+<a href=/hermit/packaging/schema/delete/ class=gdoc-nav__entry>
+on > delete
+</a>
+</span>
+</li>
+<li>
+<span class=flex>
 <a href=/hermit/packaging/schema/message/ class=gdoc-nav__entry>
 on > message
 </a>
@@ -322,6 +329,10 @@ Blocks
 <tr>
 <td><a class=gdoc-markdown__link href=../copy><code>copy { … }</code></a></td>
 <td>A file to copy when the event is triggered.</td>
+</tr>
+<tr>
+<td><a class=gdoc-markdown__link href=../delete><code>delete { … }</code></a></td>
+<td>Delete files.</td>
 </tr>
 <tr>
 <td><a class=gdoc-markdown__link href=../message><code>message { … }</code></a></td>
