@@ -6,7 +6,7 @@
 <meta name=description content="Generally, using Hermit in CI is similar to using it locally - activate your environment via . ./bin/activate-hermit, add <repo>/bin to your $PATH, or use ./bin/hermit env to directly update your CI environment.
 GitHub Actions    Using Hermit in GitHub Actions is straightforward. Just add the following step to each job:
 - name:Init Hermitrun:./bin/hermit env --raw >> $GITHUB_ENVeg.
-jobs:test:name:Testruns-on:ubuntu-lateststeps:- name:Checkout codeuses:actions/checkout@v2- name:Init Hermitrun:./bin/hermit env --raw >> $GITHUB_ENV- name:Testrun:go test .">
+on:push:branches:- masterpull_request:name:CIjobs:test:name:Testruns-on:ubuntu-lateststeps:- name:Checkout codeuses:actions/checkout@v2- name:Init Hermitrun:./bin/hermit env -r >> $GITHUB_ENV- name:Testrun:go test .">
 <title>Continuous Integration | Hermit Docs</title>
 <link rel=icon href=/hermit/favicon/favicon-32x32.png type=image/x-icon>
 <script src=/hermit/js/darkmode-38abb9703d.min.js></script>
@@ -320,7 +320,13 @@ GitHub Actions
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Init Hermit</span><span class=w>
 </span><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=l>./bin/hermit env --raw &gt;&gt; $GITHUB_ENV</span><span class=w>
 </span></code></pre></div><p>eg.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=nt>jobs</span><span class=p>:</span><span class=w>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=nt>on</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span><span class=nt>push</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=nt>branches</span><span class=p>:</span><span class=w>
+</span><span class=w>      </span>- <span class=l>master</span><span class=w>
+</span><span class=w>  </span><span class=nt>pull_request</span><span class=p>:</span><span class=w>
+</span><span class=w></span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>CI</span><span class=w>
+</span><span class=w></span><span class=nt>jobs</span><span class=p>:</span><span class=w>
 </span><span class=w>  </span><span class=nt>test</span><span class=p>:</span><span class=w>
 </span><span class=w>    </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Test</span><span class=w>
 </span><span class=w>    </span><span class=nt>runs-on</span><span class=p>:</span><span class=w> </span><span class=l>ubuntu-latest</span><span class=w>
@@ -328,7 +334,7 @@ GitHub Actions
 </span><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Checkout code</span><span class=w>
 </span><span class=w>        </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>actions/checkout@v2</span><span class=w>
 </span><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Init Hermit</span><span class=w>
-</span><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=l>./bin/hermit env --raw &gt;&gt; $GITHUB_ENV</span><span class=w>
+</span><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=l>./bin/hermit env -r &gt;&gt; $GITHUB_ENV</span><span class=w>
 </span><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Test</span><span class=w>
 </span><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=l>go test ./...</span><span class=w>
 </span></code></pre></div><div class=gdoc-page__anchorwrap>
