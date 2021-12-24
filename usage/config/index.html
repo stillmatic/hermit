@@ -96,6 +96,13 @@ Package management
 </li>
 <li>
 <span class=flex>
+<a href=/hermit/usage/recipes/ class=gdoc-nav__entry>
+Recipes / Patterns
+</a>
+</span>
+</li>
+<li>
+<span class=flex>
 <a href=/hermit/usage/ide/ class=gdoc-nav__entry>
 Editor / IDE Integration
 </a>
@@ -348,7 +355,7 @@ Per-environment Sources
 </h2>
 </div><p>Hermit supports three different manifest sources:</p>
 <ol>
-<li>Git repositories; any cloneable URI ending with <code>.git</code>, eg.<br><code>https://github.com/cashapp/hermit-packages.git</code></li>
+<li>Git repositories; any cloneable URI ending with <code>.git</code>, eg.<br><code>https://github.com/cashapp/hermit-packages.git</code>. An optional <code>#&lt;tag></code> suffix can be added to checkout a specific tag.</li>
 <li>Local filesystem, eg. <code>file:///home/user/my-packages</code>.<br>This is mostly only useful for local development and testing.</li>
 <li>Environment relative, eg. <code>env:///my-packages</code>.<br>This will search for package manifests in the directory <code>${HERMIT_ENV}/my-packages</code>. Useful for local overrides.</li>
 </ol>
