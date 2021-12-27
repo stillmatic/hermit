@@ -5,7 +5,7 @@
 <meta name=color-scheme content="light dark">
 <meta name=description content="Automatically update versions.
 Used by: version
-Attributes       Attribute Type Description     github-release string GitHub <user>/<repo> to retrieve and update versions from the releases API.   version-pattern string? Regex with one capture group to extract the version number from the origin.    ">
+Blocks       Block Description     html { … } Extract version information from a HTML URL using XPath.    Attributes       Attribute Type Description     github-release string? GitHub <user>/<repo> to retrieve and update versions from the releases API.   version-pattern string? Regex with one capture group to extract the version number from the origin.">
 <title>version > auto-version | Hermit Docs</title>
 <link rel=icon href=/hermit/favicon/favicon-32x32.png type=image/x-icon>
 <script src=/hermit/js/darkmode-38abb9703d.min.js></script>
@@ -196,6 +196,13 @@ Schema
 </li>
 <li>
 <span class=flex>
+<a href=/hermit/packaging/schema/html/ class=gdoc-nav__entry>
+auto-version > html
+</a>
+</span>
+</li>
+<li>
+<span class=flex>
 <a href=/hermit/packaging/schema/darwin/ class=gdoc-nav__entry>
 darwin
 </a>
@@ -316,6 +323,26 @@ Edit this page
 <p>Automatically update versions.</p>
 <p>Used by: <a class=gdoc-markdown__link href=../version#blocks>version</a></p>
 <div class=gdoc-page__anchorwrap>
+<h2 id=blocks>
+Blocks
+<a data-clipboard-text=https://cashapp.github.io/hermit/packaging/schema/auto-version/#blocks class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Blocks" href=#blocks><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg>
+</a>
+</h2>
+</div><table>
+<thead>
+<tr>
+<th>Block</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class=gdoc-markdown__link href=../html><code>html { … }</code></a></td>
+<td>Extract version information from a HTML URL using XPath.</td>
+</tr>
+</tbody>
+</table>
+<div class=gdoc-page__anchorwrap>
 <h2 id=attributes>
 Attributes
 <a data-clipboard-text=https://cashapp.github.io/hermit/packaging/schema/auto-version/#attributes class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Attributes" href=#attributes><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg>
@@ -332,7 +359,7 @@ Attributes
 <tbody>
 <tr>
 <td><code>github-release</code></td>
-<td><code>string</code></td>
+<td><code>string?</code></td>
 <td>GitHub &lt;user>/&lt;repo> to retrieve and update versions from the releases API.</td>
 </tr>
 <tr>

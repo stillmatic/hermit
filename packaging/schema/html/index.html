@@ -3,10 +3,10 @@
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=color-scheme content="light dark">
-<meta name=description content="A file to copy when the event is triggered.
-Used by: on
-Attributes       Attribute Type Description     from string The source file to copy from. Absolute paths reference the file system while relative paths are against the manifest source bundle.   mode number? File mode of file.   to string The relative destination to copy to, based on the context.">
-<title>on > copy | Hermit Docs</title>
+<meta name=description content="Extract version information from a HTML URL using XPath.
+Used by: auto-version
+Attributes       Attribute Type Description     url string URL to retrieve HTML from.   xpath string XPath for extracting versions from HTML (see https://github.com/antchfx/htmlquery)    ">
+<title>auto-version > html | Hermit Docs</title>
 <link rel=icon href=/hermit/favicon/favicon-32x32.png type=image/x-icon>
 <script src=/hermit/js/darkmode-38abb9703d.min.js></script>
 <link rel=preload as=font href=/hermit/fonts/Metropolis.woff2 type=font/woff2 crossorigin=anonymous>
@@ -196,7 +196,7 @@ Schema
 </li>
 <li>
 <span class=flex>
-<a href=/hermit/packaging/schema/html/ class=gdoc-nav__entry>
+<a href=/hermit/packaging/schema/html/ class="gdoc-nav__entry is-active">
 auto-version > html
 </a>
 </span>
@@ -245,7 +245,7 @@ on > chmod
 </li>
 <li>
 <span class=flex>
-<a href=/hermit/packaging/schema/copy/ class="gdoc-nav__entry is-active">
+<a href=/hermit/packaging/schema/copy/ class=gdoc-nav__entry>
 on > copy
 </a>
 </span>
@@ -307,25 +307,25 @@ version > auto-version
 justify-between" itemprop=breadcrumb>
 <div><svg class="icon gdoc_path hidden-mobile"><use xlink:href="#gdoc_path"/></svg>
 <ol class=breadcrumb itemscope itemtype=https://schema.org/BreadcrumbList>
-<li itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><a itemscope itemtype=https://schema.org/WebPage itemprop=item itemid=/hermit/ href=/hermit/><span itemprop=name>Hermit</span></a><meta itemprop=position content="2"></li><li> / </li><li itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><a itemscope itemtype=https://schema.org/WebPage itemprop=item itemid=/hermit/packaging/ href=/hermit/packaging/><span itemprop=name>Packaging</span></a><meta itemprop=position content="3"></li><li> / </li><li itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><a itemscope itemtype=https://schema.org/WebPage itemprop=item itemid=/hermit/packaging/schema/ href=/hermit/packaging/schema/><span itemprop=name>Schema</span></a><meta itemprop=position content="4"></li><li> / </li><li itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><span itemprop=name>on > copy</span><meta itemprop=position content="5"></li>
+<li itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><a itemscope itemtype=https://schema.org/WebPage itemprop=item itemid=/hermit/ href=/hermit/><span itemprop=name>Hermit</span></a><meta itemprop=position content="2"></li><li> / </li><li itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><a itemscope itemtype=https://schema.org/WebPage itemprop=item itemid=/hermit/packaging/ href=/hermit/packaging/><span itemprop=name>Packaging</span></a><meta itemprop=position content="3"></li><li> / </li><li itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><a itemscope itemtype=https://schema.org/WebPage itemprop=item itemid=/hermit/packaging/schema/ href=/hermit/packaging/schema/><span itemprop=name>Schema</span></a><meta itemprop=position content="4"></li><li> / </li><li itemprop=itemListElement itemscope itemtype=https://schema.org/ListItem><span itemprop=name>auto-version > html</span><meta itemprop=position content="5"></li>
 </ol>
 </div>
 <div>
 <span class=editpage><svg class="icon gdoc_code"><use xlink:href="#gdoc_code"/></svg>
-<a href=https://github.com/cashapp/hermit/edit/master/docs/content/packaging/schema/copy.md>
+<a href=https://github.com/cashapp/hermit/edit/master/docs/content/packaging/schema/html.md>
 Edit this page
 </a>
 </span>
 </div>
 </div>
 <article class="gdoc-markdown gdoc-markdown__align--left">
-<h1>on > copy</h1>
-<p>A file to copy when the event is triggered.</p>
-<p>Used by: <a class=gdoc-markdown__link href=../on#blocks>on</a></p>
+<h1>auto-version > html</h1>
+<p>Extract version information from a HTML URL using XPath.</p>
+<p>Used by: <a class=gdoc-markdown__link href=../auto-version#blocks>auto-version</a></p>
 <div class=gdoc-page__anchorwrap>
 <h2 id=attributes>
 Attributes
-<a data-clipboard-text=https://cashapp.github.io/hermit/packaging/schema/copy/#attributes class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Attributes" href=#attributes><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg>
+<a data-clipboard-text=https://cashapp.github.io/hermit/packaging/schema/html/#attributes class="gdoc-page__anchor gdoc-page__anchor--right clip" aria-label="Anchor Attributes" href=#attributes><svg class="icon gdoc_link"><use xlink:href="#gdoc_link"/></svg>
 </a>
 </h2>
 </div><table>
@@ -338,19 +338,14 @@ Attributes
 </thead>
 <tbody>
 <tr>
-<td><code>from</code></td>
+<td><code>url</code></td>
 <td><code>string</code></td>
-<td>The source file to copy from. Absolute paths reference the file system while relative paths are against the manifest source bundle.</td>
+<td>URL to retrieve HTML from.</td>
 </tr>
 <tr>
-<td><code>mode</code></td>
-<td><code>number?</code></td>
-<td>File mode of file.</td>
-</tr>
-<tr>
-<td><code>to</code></td>
+<td><code>xpath</code></td>
 <td><code>string</code></td>
-<td>The relative destination to copy to, based on the context.</td>
+<td>XPath for extracting versions from HTML (see <a class=gdoc-markdown__link href=https://github.com/antchfx/htmlquery>https://github.com/antchfx/htmlquery</a>)</td>
 </tr>
 </tbody>
 </table>
